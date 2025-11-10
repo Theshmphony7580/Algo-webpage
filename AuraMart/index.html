@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    
+    <!-- SEO Meta Tags -->
+    <title>AURA MART - Shop Smart, Shop Beautifully | Futuristic E-commerce</title>
+    <meta name="description" content="Experience the future of shopping with AURA MART. AI-powered product recommendations, cutting-edge tech products, and elegant design. Shop premium headphones, smartwatches, VR headsets and more." />
+    <meta name="keywords" content="futuristic shopping, AI e-commerce, tech products, smart shopping, premium electronics, wireless headphones, smartwatch, VR headset, gaming keyboard" />
+    <meta name="author" content="AURA MART" />
+    <link rel="canonical" href="https://lovable.dev/projects/e45453c0-25b8-4d1e-93d1-f608feebdca6" />
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="AURA MART - The Future of Shopping" />
+    <meta property="og:description" content="Shop Smart. Shop Beautifully. Experience AI-powered e-commerce with futuristic design and premium tech products." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lovable.dev/projects/e45453c0-25b8-4d1e-93d1-f608feebdca6" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AURA MART - The Future of Shopping" />
+    <meta name="twitter:description" content="Shop Smart. Shop Beautifully. Experience AI-powered e-commerce." />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <!-- Theme Color & PWA -->
+    <meta name="theme-color" content="#3b82f6" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>

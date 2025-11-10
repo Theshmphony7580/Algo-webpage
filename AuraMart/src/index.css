@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AURA MART Design System - Futuristic E-commerce Theme */
+
+@layer base {
+  :root {
+    /* Light Mode - Futuristic White + Neon Blue */
+    --background: 220 20% 98%;
+    --foreground: 222 47% 11%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    
+    /* Neon Blue Primary */
+    --primary: 199 95% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Secondary Glass Effect */
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 222 47% 11%;
+    
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 46%;
+    
+    --accent: 199 95% 60%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 199 95% 60%;
+    
+    --radius: 1rem;
+    
+    /* Futuristic Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(199, 95%, 60%) 0%, hsl(210, 100%, 70%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    
+    /* Glow Effects */
+    --glow-primary: 0 0 20px hsl(199 95% 60% / 0.3);
+    --glow-strong: 0 0 40px hsl(199 95% 60% / 0.5);
+    
+    /* Animations */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-theme: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                      color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                      border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+  .dark {
+    /* Dark Mode - Charcoal + Neon Blue */
+    --background: 222 47% 8%;
+    --foreground: 220 20% 98%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 220 20% 98%;
+    
+    --popover: 222 47% 11%;
+    --popover-foreground: 220 20% 98%;
+    
+    /* Neon Blue remains bright in dark mode */
+    --primary: 199 95% 60%;
+    --primary-foreground: 222 47% 11%;
+    
+    --secondary: 222 40% 15%;
+    --secondary-foreground: 220 20% 98%;
+    
+    --muted: 222 40% 15%;
+    --muted-foreground: 220 15% 65%;
+    
+    --accent: 199 95% 60%;
+    --accent-foreground: 222 47% 11%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 222 40% 20%;
+    --input: 222 40% 20%;
+    --ring: 199 95% 60%;
+    
+    /* Dark Mode Glassmorphism */
+    --gradient-glass: linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(56, 189, 248, 0.05));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-['Inter'] antialiased;
+    font-size: clamp(0.875rem, 0.8rem + 0.4vw, 1rem);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-['Poppins'] font-semibold;
+  }
+  
+  h1 { font-size: clamp(2rem, 1.5rem + 2.5vw, 4rem); }
+  h2 { font-size: clamp(1.75rem, 1.3rem + 2vw, 3rem); }
+  h3 { font-size: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem); }
+  h4 { font-size: clamp(1.25rem, 1.1rem + 1vw, 1.75rem); }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  /* Focus Indicators */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary rounded-sm;
+  }
+  
+  /* Safe Area for Mobile */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism Effect */
+  .glass {
+    @apply backdrop-blur-xl bg-white/10 dark:bg-white/5 border border-white/20;
+  }
+  
+  .glass-card {
+    @apply glass rounded-2xl shadow-lg;
+  }
+  
+  /* Glow Effects */
+  .glow {
+    box-shadow: var(--glow-primary);
+  }
+  
+  .glow-strong {
+    box-shadow: var(--glow-strong);
+  }
+  
+  /* Neon Border */
+  .neon-border {
+    @apply border border-primary/50 shadow-[0_0_15px_rgba(56,189,248,0.3)];
+  }
+  
+  /* Smooth Transitions */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  /* Animated Gradient Text */
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+  }
+  
+  /* Glow Pulse Animation */
+  @keyframes glow-pulse {
+    0%, 100% { 
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% { 
+      box-shadow: 0 0 40px hsl(var(--primary) / 0.6), 0 0 60px hsl(var(--primary) / 0.4);
+    }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  /* Trending Badge */
+  .trending-badge {
+    @apply relative;
+  }
+  
+  .trending-badge::before {
+    content: '';
+    @apply absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-full opacity-75 blur-md;
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  .trending-badge::after {
+    content: '';
+    @apply absolute inset-0 bg-background rounded-full;
+  }
+  
+  /* Ripple Effect */
+  .ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  /* Shimmer Loading Effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary) / 0.05) 0%,
+      hsl(var(--primary) / 0.15) 50%,
+      hsl(var(--primary) / 0.05) 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Swipe Action Styles */
+  .swipe-action-left {
+    background: linear-gradient(90deg, transparent, hsl(var(--destructive)));
+  }
+
+  .swipe-action-right {
+    background: linear-gradient(-90deg, transparent, hsl(var(--primary)));
+  }
+}
